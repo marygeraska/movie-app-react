@@ -268,6 +268,8 @@ h1, h2, h3 {
   gap: 25px;
   padding: 60px 0; 
 
+}
+
 .pagination button {
   padding: 12px 24px;
   background-color: #1a6eed;
@@ -446,20 +448,8 @@ header h1 {
 
 
 
-/* Для мобилок, чтобы картинка была сверху текста */
-@media (max-width: 600px) {
-  .modal-content {
-    flex-direction: column;
-     overflow-y: auto;
-  }
-  .modal-content img {
-    width: 100%;
-  }
 
-  .modal-info h2 {
-    font-size: 1.5rem;
-  }
-}
+
 
 
 footer {
@@ -493,7 +483,7 @@ footer {
 }
 
 .footer-links a {
-  color: #1a6eed; /* Наш фирменный красный */
+  color: #1a6eed; 
   text-decoration: none;
   font-weight: bold;
   transition: opacity 0.2s;
@@ -511,7 +501,7 @@ footer {
   right: 40px;
   width: 40px;
   height: 40px;
-  background-color: #1a6eed; /* Наш фирменный красный */
+  background-color: #1a6eed; 
   color: white;
   border: none;
   border-radius: 50%;
@@ -541,7 +531,20 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* На мобилках кнопку лучше сделать чуть меньше и прижать к углу */
+@media (max-width: 600px) {
+  .modal-content {
+    flex-direction: column;
+     overflow-y: auto;
+  }
+  .modal-content img {
+    width: 100%;
+  }
+
+  .modal-info h2 {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .scroll-to-top {
     bottom: 20px;
