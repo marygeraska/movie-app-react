@@ -1,0 +1,552 @@
+.App h1 {
+  text-align: center;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.1px; 
+  text-transform: uppercase; 
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 40px;
+  padding: 40px 20px;
+  max-width: 1400px; 
+  margin: 0 auto;  
+}
+
+.movie-card {
+  background: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+}
+
+.poster-container {
+  position: relative;
+}
+
+.movie-card img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+.rating-badge {
+  display: flex;
+  align-items: center; /* Центрируем звезду и текст по вертикали */
+  gap: 5px;            /* Расстояние между звездой и цифрой */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: white;
+  z-index: 10;
+  white-space: nowrap;
+
+  overflow: visible;
+}
+
+.star-icon {
+  width: 18px !important; 
+  height: 18px !important;
+  /* contain гарантирует, что вся картинка впишется в квадрат, не обрезаясь */
+  object-fit: contain; 
+  /* Убираем любые стандартные отступы у картинки */
+  display: block; 
+  flex-shrink: 0; /* Не даем тексту "сдавливать" звезду */
+}
+
+
+
+.movie-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.movie-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.movie-info .year {
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.favorite-btn {
+  margin-top: auto;
+  background: #e58d09;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.favorite-btn:hover {
+  background: #e58d09;
+}
+
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: #1a1a1a;
+  color: white;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  border-radius: 16px;
+  position: relative;
+  display: flex; /* Картинка слева, текст справа */
+  overflow-y: auto;
+  padding: 30px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #111;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #1a6eed;
+  border-radius: 10px;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content img {
+  width: 40%;
+  object-fit: cover;
+}
+
+.modal-info {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-right: 60px;
+}
+
+.modal-info h2 {
+  margin: 0 0 10px 0;
+  font-size: 2rem;
+  color: #dcd9d9; 
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+.modal-rating-container {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Чуть больше отступ */
+  margin-bottom: 10px;
+}
+
+.star-icon-modal {
+  width: 24px !important; /* В модалке звезда побольше */
+  height: 24px !important;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+.rating-value {
+  font-weight: bold;
+  color: #e58d09;
+  font-size: 1.2rem;
+}
+
+.modal-overview {
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: #1a6eed;
+}
+
+.fav {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: auto; /* Прижмет кнопку к низу карточки */
+}
+
+.fav.active {
+  background: #1a6eed;
+  border-color: #033d94;
+  color: black;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: -0.5px; 
+  text-transform: uppercase;
+  gap: 25px;
+  padding: 60px 0; 
+
+.pagination button {
+  padding: 12px 24px;
+  background-color: #1a6eed;
+  color: white;
+  border: none;
+  border-radius: 8px; /* Чуть более скругленные */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Плавность для всего */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.5px; 
+  text-transform: uppercase;
+}
+
+/* Эффект при наведении */
+.pagination button:not(:disabled):hover {
+  background-color: #014dc0;
+  transform: translateY(-2px); /* Кнопка слегка "всплывает" */
+  box-shadow: 0 6px 12px rgba(134, 138, 249, 0.3);
+}
+
+/* Эффект при нажатии */
+.pagination button:not(:disabled):active {
+  transform: translateY(0);
+}
+
+.pagination button:disabled {
+  background-color: #333;
+  color: #777;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.pagination span {
+  font-size: 1 rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #1a6eed; /* Цвет акцента для номера страницы */
+}
+
+.pagination.pagination-loading {
+  opacity: 0.6;
+  pointer-events: none;
+  filter: blur(1px); 
+  transition: all 0.4s ease;
+}
+
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background: rgba(0, 0, 0, 0.8); /* Темный фон */
+  backdrop-filter: blur(10px); /* Магия размытия */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header h1 {
+  color: #1a6eed; 
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.search-container {
+  position: relative;
+  width: 300px; /* Фиксированная ширина поиска */
+}
+
+#movie-search {
+  width: 100%;
+  padding: 10px 10px 10px 15px; /* Отступ справа под крестик */
+  background: #222;
+  border: 1px solid #444;
+  border-radius: 20px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#movie-search:focus {
+  outline: none;
+  border-color: #1a6eed;
+  background: #333;
+  box-shadow: 0 0 10px rgba(9, 68, 229, 0.3);
+}
+
+.clear-btn {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.clear-btn:hover {
+  color: #e58d09;
+}
+
+/* Скрываем подпись для зрячих, но оставляем для роботов */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+
+.skeleton-card {
+  width: 100%;
+  aspect-ratio: 2 / 3.3; 
+  background: #222; /* Темная база */
+  border-radius: 12px;
+  position: relative; /* ВАЖНО: привязываем блик к карточке */
+  overflow: hidden;   /* ВАЖНО: обрезаем блик на границах */
+}
+
+/* Настраиваем внутренние части */
+.skeleton-poster {
+  height: 75%;
+  background: #2a2a2a;
+}
+
+.skeleton-line {
+  height: 20px;
+  width: 70%;
+  margin: 15px auto;
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+/* Анимация блика через псевдоэлемент */
+.skeleton-card::after {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%;
+  height: 100%;
+  /* Градиент "волны" */
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.08), 
+    transparent
+  );
+  /* Начальное положение — слева за кадром */
+  transform: translateX(-100%);
+  animation: shimmer-move 1.5s infinite;
+}
+
+@keyframes shimmer-move {
+  100% { 
+    transform: translateX(100%); 
+  }
+}
+
+
+
+/* Для мобилок, чтобы картинка была сверху текста */
+@media (max-width: 600px) {
+  .modal-content {
+    flex-direction: column;
+     overflow-y: auto;
+  }
+  .modal-content img {
+    width: 100%;
+  }
+
+  .modal-info h2 {
+    font-size: 1.5rem;
+  }
+}
+
+
+footer {
+  margin-top: 60px;
+  padding: 40px 0;
+  background: rgba(0, 0, 0, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #888;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  text-align: center;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+.footer-links a {
+  color: #1a6eed; /* Наш фирменный красный */
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+  background-color: #1a6eed; /* Наш фирменный красный */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(9, 35, 229, 0.4);
+  animation: fadeInScroll 0.3s ease-in-out;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.scroll-to-top:hover {
+  background-color: #0446ab;
+  transform: scale(1.1);
+}
+
+.scroll-to-top:active {
+  transform: scale(0.9);
+}
+
+@keyframes fadeInScroll {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* На мобилках кнопку лучше сделать чуть меньше и прижать к углу */
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+}
