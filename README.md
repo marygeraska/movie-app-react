@@ -1,16 +1,52 @@
-# React + Vite
+# Movie Search App (React + Vite) 🎬
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Веб-приложение для поиска фильмов с использованием TMDB API. Проект создан с фокусом на чистый UI, плавный UX и отзывчивость.
 
-Currently, two official plugins are available:
+**🔗 [Живая ссылка на проект](https://marygeraska.github.io/movie-app-react/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Main Screen](./screenshots/fullpage.png) 
+*Скриншот главной страницы*
 
-## React Compiler
+## Особенности
+- **Динамический поиск:** Поиск фильмов в реальном времени.
+- **Интерактивная модалка:** Детальное описание фильмов, которое открывается без перезагрузки страницы.
+- **Умный скролл:** Блокировка прокрутки фона при открытом модальном окне и кастомный скроллбар внутри.
+- **Управление с клавиатуры:** Закрытие модального окна клавишей `Esc`.
+- **Полная адаптивность:** Сайт корректно отображается на смартфонах, планшетах и десктопах.
+- **Чистый код:** Использование React hooks (`useState`, `useEffect`), работа с переменными окружения (.env).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Технологии
+- **Frontend:** React.js, Vite
+- **Styling:** CSS3 (Flexbox, Grid, Animations)
+- **API:** [The Movie Database (TMDB)](https://themoviedb.org)
+- **Deployment:** GitHub Pages
 
-## Expanding the ESLint configuration
+## Как запустить локально
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Клонируйте репозиторий:**
+   ```bash
+   git clone git clone https://github.com/marygeraska/movie-app-react.git
+
+2. **Перейдите в папку проекта:**
+    ```bash
+    cd ИМЯ_РЕПОЗИТОРИЯ
+    ```
+3. **Установите зависимости:**
+    ```bash
+    npm install
+    ```
+4. **Настройте переменные окружения:**
+   ```
+   1. Создайте в корне проекта файл .env
+   2. Добавьте в него ваш API-ключ от TMDB (получить можно здесь):
+    ```env
+    VITE_TMDB_API_KEY=ваш_ключ_здесь
+    ```
+5. **Запустите сервер для разработки:**
+    ```bash
+    npm run dev
+    ```
+6. **Откройте приложение:**
+    ```
+    Перейдите по адресу, который появится в терминале (обычно это http://localhost:5173).
+    ```
