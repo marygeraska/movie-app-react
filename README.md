@@ -2,15 +2,11 @@
 
 Modern React application for searching movies using TMDB API.  
 Built with focus on UI/UX, performance and clean architecture.
-# 🎬 Movie Search App (React + Vite)
-
-Modern React application for searching movies using TMDB API.  
-Built with focus on UI/UX, performance and clean architecture.
 
 🔗 **Live Demo:** https://marygeraska.github.io/movie-app-react/
-🔗 **Live Demo:** https://marygeraska.github.io/movie-app-react/
 
-## Preview
+
+
 ## Preview
 
 ![Main Screen](./screenshots/fullpage.png)  
@@ -50,68 +46,25 @@ Built with focus on UI/UX, performance and clean architecture.
 ## Setup
 
 1. **Clone the repository**:
-```bash
-git clone https://github.com/marygeraska/movie-app-react.git
-```
-![Main Screen](./screenshots/fullpage.png)  
-![Modal](./screenshots/modal.png)  
-![Search](./screenshots/search.png)
+   ```bash
+   git clone https://github.com/marygeraska/movie-app-react.git
+   ```
 
-
-## Features
-
-- Debounced search (optimized API requests)
-- Modal with keyboard support (Esc)
-- Pagination
-- Skeleton loading
-- Favorites with localStorage
-- Responsive design
-- Clean architecture using React hooks
-
-
-## Tech Stack
-
-- React (Hooks)
-- Vite
-- Axios
-- CSS (Flexbox, Grid, Animations)
-- TMDB API
-
-
-## What I learned
-
-- Working with REST API (TMDB)
-- Managing state with React hooks
-- Improving UX (debounce, modal behavior)
-- Structuring components
-
-
-
-## Setup
-
-1. **Clone the repository**:
-```bash
-git clone https://github.com/marygeraska/movie-app-react.git
-```
-
-2. **Go to the project folder:**
 2. **Go to the project folder:**
     ```bash
     cd movie-app-react
-    cd movie-app-react
     ```
-3. **Install dependencies:**
+
 3. **Install dependencies:**
     ```bash
     npm install
     ```
-4. **Create .env.local and add your API key:**
+
 4. **Create .env.local and add your API key:**
     ```env
     VITE_TMDB_API_KEY=your_key_here
-    VITE_TMDB_API_KEY=your_key_here
     ```
-5. **Run the project:**
+
 5. **Run the project:**
     ```bash
     npm run dev
