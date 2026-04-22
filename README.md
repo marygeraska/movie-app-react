@@ -1,52 +1,83 @@
-# Movie Search App (React + Vite) 🎬
+# 🎬 Movie Search App (React + Vite)
 
-Веб-приложение для поиска фильмов с использованием TMDB API. Проект создан с фокусом на чистый UI, плавный UX и отзывчивость.
+Modern React application for searching movies using TMDB API.  
+Built with focus on UI/UX, performance and clean architecture.
 
-**🔗 [Живая ссылка на проект](https://marygeraska.github.io/movie-app-react/)**
+🔗 **Live Demo:** https://marygeraska.github.io/movie-app-react/
 
-![Main Screen](./screenshots/fullpage.png) 
-*Скриншот главной страницы*
+## Preview
 
-## Особенности
-- **Динамический поиск:** Поиск фильмов в реальном времени.
-- **Интерактивная модалка:** Детальное описание фильмов, которое открывается без перезагрузки страницы.
-- **Умный скролл:** Блокировка прокрутки фона при открытом модальном окне и кастомный скроллбар внутри.
-- **Управление с клавиатуры:** Закрытие модального окна клавишей `Esc`.
-- **Полная адаптивность:** Сайт корректно отображается на смартфонах, планшетах и десктопах.
-- **Чистый код:** Использование React hooks (`useState`, `useEffect`), работа с переменными окружения (.env).
+![Main Screen](./screenshots/fullpage.png)  
+![Modal](./screenshots/modal.png)  
+![Search](./screenshots/search.png)
 
-## Технологии
-- **Frontend:** React.js, Vite
-- **Styling:** CSS3 (Flexbox, Grid, Animations)
-- **API:** [The Movie Database (TMDB)](https://themoviedb.org)
-- **Deployment:** GitHub Pages
 
-## Как запустить локально
+## Features
 
-1. **Клонируйте репозиторий:**
-   ```bash
-   git clone git clone https://github.com/marygeraska/movie-app-react.git
+- Debounced search (optimized API requests)
+- Modal with keyboard support (Esc)
+- Pagination
+- Skeleton loading
+- Favorites with localStorage
+- Responsive design
+- Clean architecture using React hooks
 
-2. **Перейдите в папку проекта:**
+
+## Tech Stack
+
+- React (Hooks)
+- Vite
+- Axios
+- CSS (Flexbox, Grid, Animations)
+- TMDB API
+
+
+## What I learned
+
+- Working with REST API (TMDB)
+- Managing state with React hooks
+- Improving UX (debounce, modal behavior)
+- Structuring components
+
+
+
+## Setup
+
+1. **Clone the repository**:
+```bash
+git clone https://github.com/marygeraska/movie-app-react.git
+```
+
+2. **Go to the project folder:**
     ```bash
-    cd ИМЯ_РЕПОЗИТОРИЯ
+    cd movie-app-react
     ```
-3. **Установите зависимости:**
+3. **Install dependencies:**
     ```bash
     npm install
     ```
-4. **Настройте переменные окружения:**
-   ```
-   1. Создайте в корне проекта файл .env
-   2. Добавьте в него ваш API-ключ от TMDB (получить можно здесь):
+4. **Create .env.local and add your API key:**
     ```env
-    VITE_TMDB_API_KEY=ваш_ключ_здесь
+    VITE_TMDB_API_KEY=your_key_here
     ```
-5. **Запустите сервер для разработки:**
+5. **Run the project:**
     ```bash
     npm run dev
     ```
-6. **Откройте приложение:**
-    ```
-    Перейдите по адресу, который появится в терминале (обычно это http://localhost:5173).
-    ```
+##  Note
+
+This project is for educational purposes and uses TMDB API.
+
+## 🇷🇺 Краткое описание (RU)
+
+Веб-приложение для поиска фильмов с использованием API TMDB.
+
+Основной функционал:
+- поиск фильмов с задержкой (debounce)
+- модальное окно с подробной информацией
+- добавление в избранное (localStorage)
+- пагинация
+- skeleton-загрузка
+- адаптивный интерфейс
+
+Проект создан с упором на чистую архитектуру, удобный пользовательский опыт и работу с API.
