@@ -43,7 +43,7 @@ Built with focus on UI/UX, performance and clean architecture.
 
 ## Setup
 
-1. Clone the repository:
+1. **Clone the repository**:
 ```bash
 git clone https://github.com/marygeraska/movie-app-react.git
 ```
